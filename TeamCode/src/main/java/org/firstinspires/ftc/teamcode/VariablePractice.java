@@ -2,8 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
-@TeleOp
+@Disabled
 public class VariablePractice extends OpMode {
     @Override
     public void init() {
@@ -12,7 +13,7 @@ public class VariablePractice extends OpMode {
         boolean clawClosed = true;
 
         telemetry.addData("Team Number", teamNumber);
-        telemetry.addData("Motor Speoed", motorSpeed);
+        telemetry.addData("Motor Speed", motorSpeed);
         telemetry.addData("Claw Closed", clawClosed);
     }
 
