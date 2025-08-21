@@ -12,7 +12,7 @@ public class VariablePractice extends OpMode {
         boolean clawClosed = true;
 
         telemetry.addData("Team Number", teamNumber);
-        telemetry.addData("Motor Speed", motorSpeed);
+        telemetry.addData("Motor Speoed", motorSpeed);
         telemetry.addData("Claw Closed", clawClosed);
     }
 
