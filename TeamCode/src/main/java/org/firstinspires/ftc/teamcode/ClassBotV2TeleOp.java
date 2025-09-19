@@ -18,6 +18,7 @@ public class ClassBotV2TeleOp extends LinearOpMode {
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         armMotor = hardwareMap.get(DcMotor.class, "arm_motor");
         gripper = hardwareMap.get(Servo.class, "gripper");
+        
 
         // Reverse one drive motor so robot moves forward
         leftDrive.setDirection(DcMotor.Direction.REVERSE);

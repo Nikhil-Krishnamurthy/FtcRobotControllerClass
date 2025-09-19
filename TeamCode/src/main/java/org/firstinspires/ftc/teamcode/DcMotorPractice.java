@@ -3,8 +3,9 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
-@TeleOp
+@Disabled
 public class DcMotorPractice extends OpMode {
     double speedMod;
     double servoPos;
@@ -18,7 +19,7 @@ public class DcMotorPractice extends OpMode {
 
     @Override
     public void loop() {
-        touchValue = bench.TouchValue();
+        touchValue = bench.touchValue();
         if(gamepad1.a)
         {
             speedMod = gamepad1.left_stick_y * -1;
@@ -28,7 +29,7 @@ public class DcMotorPractice extends OpMode {
             speedMod = gamepad1.left_stick_y * -0.5;
         }
 
-        if(bench.TouchValue())
+        if(bench.touchValue())
         {
             servoPos = 270;
         }
@@ -39,7 +40,7 @@ public class DcMotorPractice extends OpMode {
         telemetry.addData("Motor Speed", gamepad1.left_stick_y);
         telemetry.addData("touch sensor", touchValue);
         bench.setMotorSpeed(speedMod);
-        bench.setServoSpeed(servoPos);
+        bench.setServoPosition(servoPos);
     }
 
 }
