@@ -2,8 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
-@TeleOp
+@Disabled
 public class DistanceTest extends OpMode{
 
     TestBench bench = new TestBench();
@@ -14,7 +15,7 @@ public class DistanceTest extends OpMode{
 
     @Override
     public void loop() {
-        length = bench.GetDistance();
+        length = bench.getDistance();
         telemetry.addData("Distance", length);
     }
 

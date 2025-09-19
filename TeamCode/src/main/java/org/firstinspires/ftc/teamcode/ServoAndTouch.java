@@ -12,29 +12,30 @@ public class ServoAndTouch extends LinearOpMode{
     double servoPos = 135;
     TestBench bench = new TestBench();
     private ElapsedTime runTime = new ElapsedTime();
+    private ElapsedTime runTimeDouble =  new ElapsedTime();
+    private double x;
     public void runOpMode() {
 
         bench.init(hardwareMap);
         waitForStart();
-
+        runTimeDouble.reset();
         while(opModeIsActive()){
-            double runTimeThing = getRuntime();
-            touchValue = bench.TouchValue();
-            while(touchValue){
 
-                runTime.reset();
-                while(runTime.seconds() <= 1){
-                    bench.setServoSpeed(135);
-                }
-                runTime.reset();
-                while(runTime.seconds() <= 1){
-                    bench.setServoSpeed(-135);
+            while(bench.touchValue()){
+
+
+                while(runTime.seconds() <= 1 && bench.touchValue()){
+                    bench.setServoPosition(0);
+                     x = runTime.seconds();
                 }
 
+                while(runTime.seconds() <= 2 && bench.touchValue()){
+                    bench.setServoPosition(1);
+                }
             }
-            telemetry.addData("Runtime", runTimeThing);
-            telemetry.addData("Touch Value", touchValue);
-            telemetry.addData("Servo Position", servoPos);
+            telemetry.addData("Servo Positions", bench.getServoPos());
+            telemetry.addData("Touch Value", bench.touchValue());
+            telemetry.addData("Runtime", runTimeDouble);
             telemetry.update();
         }
     }
